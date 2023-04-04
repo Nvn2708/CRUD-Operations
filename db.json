@@ -1,0 +1,207 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "empID": "TP1234",
+      "name": "Bhavani",
+      "gender": "Female",
+      "address": "Mallial",
+      "contactNo": "9030",
+      "email": "bhavani@gmail.com"
+    },
+    {
+      "id": 5,
+      "empID": "TP1405",
+      "name": "T Naveen",
+      "gender": "Male",
+      "address": "KPHB",
+      "contactNo": "9030270010",
+      "email": "nvn@gmail.com"
+    },
+    {
+      "id": 6,
+      "empID": "BD4243",
+      "name": "Dusa Sai Krishna",
+      "gender": "Male",
+      "address": "Mallial",
+      "contactNo": "8143129252",
+      "email": "sai@hotmail.com"
+    },
+    {
+      "id": 7,
+      "empID": "TP0469",
+      "name": "Sai teja",
+      "gender": "Male",
+      "address": "Kphb",
+      "contactNo": "9063602919",
+      "email": "saitejadontharaveni89@hotmail.com"
+    },
+    {
+      "id": 8,
+      "empID": "TP2172",
+      "name": "Pradeep",
+      "gender": "Male",
+      "address": "Gudipet",
+      "contactNo": "4568123657",
+      "email": "pradeep@gmail.com"
+    },
+    {
+      "id": 9,
+      "empID": "TP0311",
+      "name": "Rani",
+      "gender": "Female",
+      "address": "Khargar",
+      "contactNo": "8459357162",
+      "email": "rani@gmail.com"
+    },
+    {
+      "id": 10,
+      "empID": "TP7864",
+      "name": "Prem",
+      "gender": "Male",
+      "address": "Navi Mumbai",
+      "contactNo": "9014334247",
+      "email": "prem@gmail.com"
+    },
+    {
+      "id": 11,
+      "empID": "TP4400",
+      "name": "Sagar T",
+      "gender": "Male",
+      "address": "Karimnagar",
+      "contactNo": "153647892",
+      "email": "sagar.T@gmail.com"
+    },
+    {
+      "id": 12,
+      "empID": "TP4243",
+      "name": "D vamshi",
+      "gender": "Male",
+      "address": "Mallial",
+      "contactNo": "984572541",
+      "email": "vamshi@gmail.com"
+    },
+    {
+      "id": 14,
+      "empID": "25",
+      "name": "kannaya",
+      "gender": "Male",
+      "address": "kphb",
+      "contactNo": "54852",
+      "email": "kannaya@gmail.com"
+    },
+    {
+      "id": 15,
+      "empID": "JN5485",
+      "name": "Naresh",
+      "gender": "",
+      "address": "KPHB",
+      "contactNo": "9584123721",
+      "email": "naresh@gmail.com"
+    },
+    {
+      "id": 16,
+      "empID": "123",
+      "name": "Naveen",
+      "gender": "",
+      "address": "sahgdsh",
+      "contactNo": "545456Ahdghjagdhja",
+      "email": "jfjshf"
+    }
+  ],
+  "signUp": [
+    {
+      "firstname": "",
+      "lastname": "",
+      "dob": "",
+      "email": "",
+      "mobile": "",
+      "password": "",
+      "id": 1
+    },
+    {
+      "firstname": "Naveen",
+      "lastname": "Thaduka",
+      "dob": "2011-08-27",
+      "email": "naveen@gmail.com",
+      "mobile": "",
+      "password": "naveen@123",
+      "id": 2
+    },
+    {
+      "firstname": "HariKrishna",
+      "lastname": "Dusa",
+      "dob": "2022-09-01",
+      "email": "hari@hotmail.com",
+      "mobile": "+91 901433247",
+      "password": "hari@4243",
+      "id": 3
+    },
+    {
+      "firstname": "SaiKrishna",
+      "lastname": "Dusa",
+      "dob": "2017-11-23",
+      "email": "saikrishna@hotmail.com",
+      "mobile": "+91 9185612587",
+      "password": "Dusa@4243",
+      "id": 4
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "dob": "",
+      "email": "",
+      "mobile": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "dob": "",
+      "email": "",
+      "mobile": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "dob": "",
+      "email": "",
+      "mobile": "",
+      "password": "",
+      "id": 7
+    },
+    {
+      "firstname": "Goutham",
+      "lastname": "Thatipamula",
+      "dob": "1995-02-27",
+      "email": "goutham@yahoo.com",
+      "mobile": "+91 954258762",
+      "password": "goutham@1213",
+      "id": 8
+    },
+    {
+      "firstname": "Rakesh",
+      "lastname": "Kasarapu",
+      "dob": "",
+      "email": "",
+      "mobile": "",
+      "password": "rakesh",
+      "id": 9
+    },
+    {
+      "firstname": "Rakesh",
+      "lastname": "R",
+      "dob": "",
+      "email": "",
+      "mobile": "",
+      "password": "r",
+      "id": 10
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

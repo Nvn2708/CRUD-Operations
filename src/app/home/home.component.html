@@ -1,0 +1,274 @@
+<!-- <div class="head">
+    <h1 class="text">USERS LIST</h1>
+</div> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+<div class="nav-bar">
+  <!-- <div>
+        <h3>FirstName LastName</h3>
+    </div> -->
+  <div class="navbarcontenet">
+    <input class="searchfield" type="search" [(ngModel)]="name"
+      placeholder="Serach by Emp ID, Name, Address, Email" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="example-spacer"></span>
+
+    <button id="form" mat-raised-button color="primary" (click)="add()">Add User</button>&nbsp;
+
+    <!-- <button class="addbutton" id="form" (click)="add()">Add Users</button>&nbsp; -->
+  </div>
+</div>
+
+<div id="id01" class="modal" *ngIf="popUp">
+  <form [formGroup]="userForm" class="modal-content animate">
+    <div class="container">
+      <!-- <div class="col-md-12">
+        <div class="form-group">
+          <label>Employee ID:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" formControlName="empID" class="w3-input" placeholder="Please Enter Employee ID" />
+          </div>
+        </div>
+      </div> -->
+
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <mat-label>Employee ID:</mat-label>
+          <input matInput  placeholder="Employee ID:" formControlName="empID" required/>
+        </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput  placeholder="Name" formControlName="name" required/>
+        </mat-form-field>
+      </div>
+
+      <!-- <div class="col-md-12">
+        <div class="form-group">
+          <label>Name:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" formControlName="name" class="w3-input" placeholder="Name" />
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <mat-radio-group >
+        <mat-radio-button formControlName="gender"  value="1">Male</mat-radio-button>&nbsp;
+        <mat-radio-button formControlName="gender"  value="2">Female</mat-radio-button>
+      </mat-radio-group> -->
+
+
+      <!-- <p>Gender:</p>
+      <input type="radio" name="gender" value="Male" formControlName="gender" />
+      Male
+      <input type="radio" name="gender" value="Female" formControlName="gender" />
+      Female<br /><br /> -->
+
+      
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <mat-label>Address:</mat-label>
+          <input matInput  placeholder="Address" formControlName="address" required/>
+        </mat-form-field>
+      </div>
+
+      
+
+      <!-- <div class="col-md-12">
+        <div class="form-group">
+          <label>Address:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" formControlName="address" class="w3-input" placeholder="Address" />
+          </div>
+        </div>
+      </div> -->
+
+          
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <mat-label>Email:</mat-label>
+          <input matInput  placeholder="email" formControlName="email" required/>
+        </mat-form-field>
+      </div>
+
+
+      <!-- <div class="col-md-12">
+        <div class="form-group">
+          <label>Email:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input type="email" formControlName="email" class="w3-input" placeholder="example@abc.com" />
+          </div>
+        </div>
+      </div> -->
+
+             
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <mat-label>Contact No:</mat-label>
+          <input matInput  placeholder="contactNo" formControlName="contactNo" required/>
+        </mat-form-field>
+      </div>
+
+      <!-- <div class="col-md-12">
+        <div class="form-group">
+          <label>Contact No:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" formControlName="contactNo" class="w3-input" placeholder="Contact NO" />
+          </div>
+        </div>
+      </div> -->
+
+
+      <button *ngIf="addButton"  mat-raised-button color="primary" (click)="addItem()">ADD</button>&nbsp;
+      <button *ngIf="updateButton" mat-raised-button color="primary" (click)="updateItem()">UPDATE</button>&nbsp;
+      <button id="close"  mat-raised-button color="accent" (click)="close()">CLOSE</button>
+
+
+
+      <!-- <div class="form-row mt-4">
+        <div class="col-md-6">
+          <button *ngIf="addButton" type="button" class="addbutton" (click)="addItem()">
+            Add</button>&nbsp;
+          <button *ngIf="updateButton" (click)="updateItem()" type="button" class="logoutbutton">
+            Update</button>&nbsp;
+          <button id="close" type="button" class="btn btn-primary" (click)="close()">
+            Close
+          </button>
+        </div>
+      </div> -->
+    </div>
+  </form>
+</div>
+
+<div class="card">
+  <!-- <form [formGroup]="userForm" id="form">
+        <div class="mt-5 box">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Name:</label>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" formControlName="name" class="w3-input" placeholder="Name">
+                    </div>
+                </div>
+            </div>
+            <p>Gender:</p>
+            <input type="radio" name="gender" value="male" formControlName="gender"> Male
+            <input type="radio" name="gender" value="female" formControlName="gender"> Female<br><br>
+            <p>Languages:</p>
+            <input type="checkbox" name="fruit" value="apple">Telugu
+            <input type="checkbox" name="fruit" value="orange">Hindi
+            <input type="checkbox" name="fruit" value="banana">English<br><br>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Address:</label>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" formControlName="address" class="w3-input" placeholder="Address">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Email:</label>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="email" formControlName="email" class="w3-input" placeholder="example@abc.com">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Contact No:</label>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" formControlName="contactNo" class="w3-input" placeholder="Contact NO">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row mt-4">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary" (click)="addItem()">Add</button>&nbsp;
+                    <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form> -->
+  <div class="alert" *ngIf="alert">
+    <div>
+      <h3>Added Successfully</h3>
+    </div>
+  </div>
+  <br />
+
+  <div class="col-md-8 mt-4 mb-4">
+    <br />
+    <table class="table table-bordered">
+      <thead>
+        <tr class="row-color">
+          <th>S.No</th>
+          <th>EMP ID</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Contact No</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="
+            let item of userData | customerEmailFilter : name;
+            let i = index
+          ">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.empID }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.contactNo }}</td>
+          <td>{{ item.email }}</td>
+
+          <button class="addbutton" *ngIf="!item.isEdit" mat-raised-button color="primary" title="Edit"
+            (click)="editItem(item, i)">
+            <mat-icon>edit</mat-icon>
+          </button>&nbsp;
+          <button class="logoutbutton" mat-raised-button color="warn" title="Remove" (click)="removeItem(item)">
+            <mat-icon>remove</mat-icon>
+          </button>&nbsp;
+
+          <!-- <button
+            *ngIf="!item.isEdit"
+            type="button"
+            class="addbutton"
+            (click)="editItem(item, i)"
+          >
+            Edit</button
+          >&nbsp; -->
+          <!-- <button *ngIf="item.isEdit" type="button" class="btn btn-primary"
+                        (click)="updateItem(item, i)">Update</button>&nbsp; -->
+          <!-- <button type="button" class="logoutbutton" (click)="removeItem(item)">
+            Remove
+          </button> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <app-portfolio (childInfo)="msg=$event" [dataShare]="dataObj"></app-portfolio>
+<h1>{{msg}}</h1> -->

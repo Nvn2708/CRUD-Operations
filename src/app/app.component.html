@@ -1,0 +1,63 @@
+<!-- <app-home></app-home> -->
+<!-- <app-welcome></app-welcome> -->
+<!-- <app-portfolio></app-portfolio> -->
+
+<p *ngIf="!toolbar.visible">
+  <mat-toolbar color="primary">
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+    <span>Maaze</span>
+    <span class="example-spacer"></span>
+    <button title="Home" mat-icon-button class="example-icon" routerLink="/home"
+      aria-label="Example icon-button with share icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <!-- <button
+    title="Add"
+
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>add</mat-icon>
+    </button> -->
+    <button title="Employee" mat-icon-button class="example-icon" routerLink="/employee"
+      aria-label="Example icon-button with share icon">
+      <mat-icon>person</mat-icon>
+    </button>
+    <button title="Logout" mat-icon-button class="example-icon favorite-icon" routerLink="/" (click)="logOut()"
+      aria-label="Example icon-button with heart icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<router-outlet></router-outlet>
+
+<!-- <body>
+
+    <h1 style="background-color: rgb(189, 173, 173); text-align:center; border:25px">Testing</h1>
+
+    <mark>Each of us lives Dependent and bound by our <ins> <small> Individual Knowledge and Our awareness
+            </small></ins>,
+        All that what we call <em>
+            REALITY </em>.
+        <br> However both <small> knowledge and awareness </small> are equivocal One's <del> Might be another's
+            Illusions</del>. We all live
+        inside
+        our own <em>fantasies</em>.
+    </mark>
+
+    <br>
+
+    <sup>Itachi Uchiha</sup>
+    <sub>Madara Uchiha</sub>
+
+    <a href="https://i.pinimg.com/originals/f2/dd/1f/f2dd1f7bccb8156d31caf71df50767d3.gif">Click here</a>
+
+
+
+</body>
+<footer style="background-color: black;">
+    <marquee behavior="" direction="right" style="color: white;">KAKASHI HATAKE</marquee>
+</footer> -->

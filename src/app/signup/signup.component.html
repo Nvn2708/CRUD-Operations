@@ -1,0 +1,92 @@
+<mat-card>
+    <mat-card-content>
+
+        <div id="register">
+            <form  [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                <div class="container">
+                    <div class="example-container">
+                        <mat-form-field class="full-width">
+                            <mat-label>First Name</mat-label>
+                            <input matInput type="text" placeholder="Enter User Email" formControlName="firstname"
+                                required />
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput type="text" placeholder="Enter User Email" formControlName="lastname"
+                                required />
+                        </mat-form-field>
+                    </div>
+                    <!-- <mat-form-field  appearance="fill">
+        <mat-label>Enter DOB</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+      </mat-form-field> -->
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password"
+                                formControlName="password" required />
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label> Confirm Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Confirm Password"
+                                formControlName="password" required />
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <!-- <label><b>Firstname</b></label>
+            <input formControlName="firstname" type="text" placeholder="Enter Firstname" required>
+            <label><b>Lastname</b></label>
+            <input formControlName="lastname" type="text" placeholder="Enter Lastname" required>
+
+            <label>Birthday:</label>
+            <input formControlName="dob" type="date">
+
+            <label><b>Personal Mail ID</b></label>
+            <input formControlName="email" type="email" placeholder="example@abc.com" required>
+
+            <label><b>Mobile Number</b></label>
+            <input formControlName="mobile" type="text" placeholder="+91 xxxxxxxxx" required>
+
+            <label><b>Create Password</b></label>
+            <input formControlName="password" type="password" required> -->
+                    <!-- <label><b>Confirm Password</b></label>
+            <input type="password" required> -->
+
+                    <button mat-raised-button color="primary" type="submit">Register</button>&nbsp;<br><br>
+
+                    <!-- <button type="submit">SignUp</button><br> -->
+                    <p>
+                        If you are already existing user? <a routerLink="/login">click here</a>
+                    </p>
+                </div>
+
+                <div>
+
+                    <button mat-raised-button color="accent" routerLink="/login">Cancel</button>
+
+                    <!-- <button type="button" (click)="cancel1()" class="cancelbtn">
+                Cancel
+            </button> -->
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>
