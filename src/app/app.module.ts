@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShowTableComponent } from './show-table/show-table.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupComponent } from './signup/signup.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { routingComponents } from './app-routing.module';
 import { RegestrationFormComponent } from './regestration-form/regestration-form.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,7 +46,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    Ng2SearchPipeModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,

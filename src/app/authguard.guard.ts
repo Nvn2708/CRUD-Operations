@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { ToolbarService } from './toolbar.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthguardGuard implements CanActivate {
+export class AuthguardGuard  {
   isAuth: any;
   constructor(private router: Router, private http: HttpClient, public toolbar: ToolbarService) { }
   canActivate(
