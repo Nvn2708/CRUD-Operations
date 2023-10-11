@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-welcome',
@@ -9,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class WelcomeComponent implements OnInit {
   popUp: boolean = false;
   createPopUp:boolean = false;
-  logInForm:FormGroup;
-  constructor(private fb: FormBuilder) {
+  logInForm:UntypedFormGroup;
+  constructor(private fb: UntypedFormBuilder) {
     this.logInForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],

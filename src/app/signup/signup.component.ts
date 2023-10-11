@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {MatCalendarCellClassFunction} from '@angular/material/datepicker';
 
@@ -15,8 +15,8 @@ export class SignupComponent implements OnInit {
   hide = true;
 
 
-  public signUpForm!: FormGroup;
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
+  public signUpForm!: UntypedFormGroup;
+  constructor(private fb: UntypedFormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({

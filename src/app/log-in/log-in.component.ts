@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ import { ToolbarService } from '../toolbar.service';
 export class LogInComponent implements OnInit {
   popUp: boolean = false;
   createPopUp: boolean = false;
-  logInForm: FormGroup;
+  logInForm: UntypedFormGroup;
   longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
   from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
   originally bred for hunting.`;
@@ -25,7 +25,7 @@ export class LogInComponent implements OnInit {
   isValid: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private http: HttpClient,
     private router: Router,
     public toolbar: ToolbarService
@@ -34,8 +34,8 @@ export class LogInComponent implements OnInit {
     this.toolbar.hide()
 
     this.logInForm = this.fb.group({
-      useremail: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
+      useremail: new UntypedFormControl('', [Validators.required]),
+      password: new UntypedFormControl('', [Validators.required]),
     });
   }
 

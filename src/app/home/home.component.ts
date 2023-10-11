@@ -1,6 +1,6 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Pipe, PipeTransform } from '@angular/core';
 import { userModel } from './home.componet.model';
 import { ApiService } from '../shared/api.service';
@@ -18,7 +18,7 @@ import { ToolbarService } from '../toolbar.service';
 })
 export class HomeComponent implements OnInit {
   searchText: any;
-  userForm: FormGroup;
+  userForm: UntypedFormGroup;
   listData: any;
   alert: boolean = false;
   index: any;
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   
 
-  constructor(private fb: FormBuilder, private api: ApiService, public toolbar: ToolbarService) {
+  constructor(private fb: UntypedFormBuilder, private api: ApiService, public toolbar: ToolbarService) {
     this.listData = [];
     this.userForm = this.fb.group({
       empID: [''],
