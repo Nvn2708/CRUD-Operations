@@ -1,11 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import {
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators,} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToolbarService } from '../toolbar.service';
 
@@ -15,39 +10,28 @@ import { ToolbarService } from '../toolbar.service';
   styleUrls: ['./log-in.component.css'],
 })
 export class LogInComponent implements OnInit {
-  popUp: boolean = false;
-  createPopUp: boolean = false;
-  logInForm: UntypedFormGroup;
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
-  hide = true;
-  isValid: boolean = false;
+  logInForm: FormGroup;
+  protected hide = true;
+  protected title = 'Welcome to my project'
 
   constructor(
-    private fb: UntypedFormBuilder,
+    private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    public toolbar: ToolbarService
   ) {
-    
-    this.toolbar.hide()
 
     this.logInForm = this.fb.group({
-      useremail: new UntypedFormControl('', [Validators.required]),
-      password: new UntypedFormControl('', [Validators.required]),
+      useremail: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
-  ngOnInit(): void {
-    this.toolbar.hide()
-  }
+  ngOnInit(): void {}
 
-  logIn() {
+  protected logIn() {
     if (this.logInForm.valid) {
       this.http.get<any>('http://localhost:3000/signUp').subscribe(
         (res) => {
-          console.log(res);
           const user = res.find((a: any) => {
             return (
               a.email === this.logInForm.value.useremail &&
@@ -56,10 +40,8 @@ export class LogInComponent implements OnInit {
           });
           if (user) {
             window.alert('LogIn Successfull');
-            this.toolbar.show();
-            this.toolbar.valid = true;
             this.logInForm.reset();
-            this.router.navigate(['home']);
+            this.router.navigate(['./home']);
 
           } else {
             window.alert('User Not Found');
@@ -74,7 +56,8 @@ export class LogInComponent implements OnInit {
     }
   }
   forgot() { }
-  showpassword() {
+
+  protected showpassword() {
     let x: any = document.getElementById('password');
     if (x.type === 'password') {
       x.type = 'text';

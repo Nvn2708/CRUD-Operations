@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthguardGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'regestration', component: RegestrationFormComponent, canActivate: [AuthguardGuard]  },
   { path: 'welcome', component: WelcomeComponent ,canActivate: [AuthguardGuard] },
   { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule), canActivate: [AuthguardGuard]  },
