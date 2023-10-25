@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import {MatCalendarCellClassFunction} from '@angular/material/datepicker';
+import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-signup',
@@ -10,22 +10,33 @@ import {MatCalendarCellClassFunction} from '@angular/material/datepicker';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  popUp: boolean = false;
-  createPopUp: boolean = false;
-  hide = true;
+  protected title: string = 'Register your self first'
+  protected hide: boolean = true;
+  errormessage: string = ''
 
 
-  public signUpForm!: UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder, private http: HttpClient, private router: Router) { }
+  public signUpForm!: FormGroup;
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.initForm();
+    this.signUpForm.valueChanges.subscribe(value => {
+      if (value.confirmPassword) {
+
+        if (value.confirmPassword === value.password) this.errormessage = 'Matched';
+        else this.errormessage = "Not matched"
+      }
+    })
+  }
+
+  initForm() {
     this.signUpForm = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-      dob: [''],
-      email: [''],
-      mobile: [''],
-      password: [''],
+      firstname: new FormControl(''),
+      lastname: new FormControl(''),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      dateOfBirth: new FormControl(''),
+      password: new FormControl(''),
+      confirmPassword: new FormControl(''),
     })
   }
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -45,7 +56,7 @@ export class SignupComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  signUp() { 
+  signUp() {
     if (this.signUpForm.valid) {
       console.log("entered")
       console.log(this.signUpForm.value)
@@ -59,11 +70,11 @@ export class SignupComponent implements OnInit {
         }
         )
     }
-  else{
-  window.alert("Please Enter The Input Fields")
-}
+    else {
+      window.alert("Please Enter The Input Fields")
+    }
   }
 
- 
+
 }
 

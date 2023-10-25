@@ -1,6 +1,60 @@
-<mat-card>
-    <mat-card-content>
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="card w-50 text-center">
+        <div class="card-header">
+            <h3>{{ title | uppercase }}</h3>
+        </div>
+        <div class="card-body">
+            <form id="myForm" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                <div class="d-flex mb-3">
+                    <label for="exampleFormControlInput1" class="form-label w-25">Firstname :</label>
+                    <input type="text" class="form-control w-75 " id="exampleFormControlInput1"
+                        formControlName="firstName" placeholder="Enter your first name">
+                </div>
+                <div class="d-flex mb-3">
+                    <label for="exampleFormControlInput1" class="form-label w-25">Lastname :</label>
+                    <input type="text" class="form-control w-75 " id="exampleFormControlInput1"
+                        formControlName="lastName" placeholder="Enter your last name">
+                </div>
+                <div class="d-flex mb-3">
+                    <label for="exampleFormControlInput1" class="form-label w-25"> Email :</label>
+                    <input type="email" class="form-control w-75 " id="exampleFormControlInput1" formControlName="email"
+                        placeholder="Enter your email address">
+                </div>
+                <div class="d-flex mb-3">
+                    <label for="exampleFormControlInput1" class="form-label w-25">Date of birth :</label>
+                    <input type="date" class="form-control w-75 " id="exampleFormControlInput1"
+                        formControlName="dateOfBirth">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="exampleFormControlInput1" class="form-label w-25">Create your password :</label>
+                    <input [type]="hide ? 'password' : 'text'" class="form-control" formControlName="password"
+                        placeholder="Enter your password">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="hide = !hide"><i
+                            [class]="hide ? 'bi bi-eye-slash' : 'bi bi-eye' "></i></button>
+                </div>
+                <div class="input-group mb-3">
+                    <label for="exampleFormControlInput1" class="form-label w-25">confirm your password :</label>
+                    <input [type]="hide ? 'password' : 'text'" class="form-control" formControlName="confirmPassword"
+                        placeholder="Confirm your password">
+                </div>
+                {{errormessage}}
 
+            </form>
+        </div>
+        <div class="card-footer text-body-secondary">
+            <button mat-raised-button color="primary" form="myForm" type="submit">Login</button>&nbsp;
+            <button mat-raised-button color="accent" routerLink="/signup">Signup</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <mat-card>
+    <mat-card-content>
         <div id="register">
             <form  [formGroup]="signUpForm" (ngSubmit)="signUp()">
                 <div class="container">
@@ -18,16 +72,7 @@
                                 required />
                         </mat-form-field>
                     </div>
-                    <!-- <mat-form-field  appearance="fill">
-        <mat-label>Enter DOB</mat-label>
-        <input matInput [matDatepicker]="picker" />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
-        ></mat-datepicker-toggle>
-        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
-      </mat-form-field> -->
+
                     <div>
                         <mat-form-field class="full-width">
                             <mat-label>Password</mat-label>
@@ -51,42 +96,16 @@
                             </button>
                         </mat-form-field>
                     </div>
-                    <!-- <label><b>Firstname</b></label>
-            <input formControlName="firstname" type="text" placeholder="Enter Firstname" required>
-            <label><b>Lastname</b></label>
-            <input formControlName="lastname" type="text" placeholder="Enter Lastname" required>
-
-            <label>Birthday:</label>
-            <input formControlName="dob" type="date">
-
-            <label><b>Personal Mail ID</b></label>
-            <input formControlName="email" type="email" placeholder="example@abc.com" required>
-
-            <label><b>Mobile Number</b></label>
-            <input formControlName="mobile" type="text" placeholder="+91 xxxxxxxxx" required>
-
-            <label><b>Create Password</b></label>
-            <input formControlName="password" type="password" required> -->
-                    <!-- <label><b>Confirm Password</b></label>
-            <input type="password" required> -->
 
                     <button mat-raised-button color="primary" type="submit">Register</button>&nbsp;<br><br>
-
-                    <!-- <button type="submit">SignUp</button><br> -->
                     <p>
                         If you are already existing user? <a routerLink="/login">click here</a>
                     </p>
                 </div>
-
                 <div>
-
                     <button mat-raised-button color="accent" routerLink="/login">Cancel</button>
-
-                    <!-- <button type="button" (click)="cancel1()" class="cancelbtn">
-                Cancel
-            </button> -->
                 </div>
             </form>
         </div>
     </mat-card-content>
-</mat-card>
+</mat-card> -->
