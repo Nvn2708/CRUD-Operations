@@ -12,17 +12,17 @@ import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 export class SignupComponent implements OnInit {
   protected title: string = 'Register your self first'
   protected hide: boolean = true;
-  errormessage: string = ''
+  errormessage: string = '';
 
 
   public signUpForm!: FormGroup;
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+    this.initForm();
+   }
 
   ngOnInit(): void {
-    this.initForm();
     this.signUpForm.valueChanges.subscribe(value => {
       if (value.confirmPassword) {
-
         if (value.confirmPassword === value.password) this.errormessage = 'Matched';
         else this.errormessage = "Not matched"
       }
@@ -31,11 +31,11 @@ export class SignupComponent implements OnInit {
 
   initForm() {
     this.signUpForm = this.fb.group({
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
       dateOfBirth: new FormControl(''),
-      password: new FormControl(''),
+      newPassword: new FormControl('',[Validators.required]),
       confirmPassword: new FormControl(''),
     })
   }
@@ -71,7 +71,7 @@ export class SignupComponent implements OnInit {
         )
     }
     else {
-      window.alert("Please Enter The Input Fields")
+      // window.alert("Please Enter The Input Fields")
     }
   }
 

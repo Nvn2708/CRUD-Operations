@@ -16,9 +16,10 @@
                         formControlName="lastName" placeholder="Enter your last name">
                 </div>
                 <div class="d-flex mb-3">
-                    <label for="exampleFormControlInput1" class="form-label w-25"> Email :</label>
-                    <input type="email" class="form-control w-75 " id="exampleFormControlInput1" formControlName="email"
-                        placeholder="Enter your email address">
+                    <label for="validationServer03" class="form-label w-25"> Email :</label>
+                    <input type="email" class="form-control w-75" id="validationServer03"
+                        aria-describedby="validationServer03Feedback" formControlName="email"
+                        placeholder="Enter your email address" required>
                 </div>
                 <div class="d-flex mb-3">
                     <label for="exampleFormControlInput1" class="form-label w-25">Date of birth :</label>
@@ -26,24 +27,23 @@
                         formControlName="dateOfBirth">
                 </div>
                 <div class="input-group mb-3">
-                    <label for="exampleFormControlInput1" class="form-label w-25">Create your password :</label>
-                    <input [type]="hide ? 'password' : 'text'" class="form-control" formControlName="password"
+                    <label for="exampleFormControlInput2" class="form-label w-25">Create your password :</label>
+                    <input [type]="hide ? 'password' : 'text'" class="form-control" formControlName="newPassword"
                         placeholder="Enter your password">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="hide = !hide"><i
-                            [class]="hide ? 'bi bi-eye-slash' : 'bi bi-eye' "></i></button>
+                    <button class="btn btn-outline-secondary" type="button" (click)="hide = !hide"><i
+                            [ngClass]="hide ? 'bi bi-eye-slash' : 'bi bi-eye' "></i></button>
                 </div>
                 <div class="input-group mb-3">
                     <label for="exampleFormControlInput1" class="form-label w-25">confirm your password :</label>
                     <input [type]="hide ? 'password' : 'text'" class="form-control" formControlName="confirmPassword"
                         placeholder="Confirm your password">
                 </div>
-                {{errormessage}}
 
             </form>
         </div>
         <div class="card-footer text-body-secondary">
-            <button mat-raised-button color="primary" form="myForm" type="submit">Login</button>&nbsp;
-            <button mat-raised-button color="accent" routerLink="/signup">Signup</button>
+            <button mat-raised-button color="primary" form="myForm" routerLink="/login">Login</button>&nbsp;
+            <button mat-raised-button color="accent" form="myForm" type="submit">Signup</button>
         </div>
     </div>
 </div>
