@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import {FormControl,FormGroup,FormBuilder,Validators,} from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToolbarService } from '../toolbar.service';
 
@@ -12,7 +12,25 @@ import { ToolbarService } from '../toolbar.service';
 export class LogInComponent implements OnInit {
   logInForm: FormGroup;
   protected hide = true;
-  protected title = 'Welcome to my project'
+  protected title = 'Welcome to my project';
+  protected toaster: boolean = false;
+  protected toasteMessage: string = '';
+  protected info: boolean = false;
+  protected header: string = '';
+
+  @ViewChild('liveToast')
+  toast!: ElementRef;
+
+  showToaster(message: string, successType: boolean) {
+    this.toaster = true;
+    this.info = successType;
+    this.toasteMessage = message;
+    this.header = successType ? 'Success' : 'Error';
+    setTimeout(() => {
+      this.toaster = false;
+    }, 3000)
+  }
+
 
   constructor(
     private fb: FormBuilder,
@@ -26,7 +44,7 @@ export class LogInComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   protected logIn() {
     if (this.logInForm.valid) {
@@ -39,20 +57,19 @@ export class LogInComponent implements OnInit {
             );
           });
           if (user) {
-            window.alert('LogIn Successfull');
+            this.showToaster('LogIn successfull', true)
             this.logInForm.reset();
             this.router.navigate(['./home']);
-
           } else {
-            window.alert('User Not Found');
+            this.showToaster('User Not Found', true)
           }
         },
         (err) => {
-          window.alert('Something went wrong');
+          this.showToaster('Something went wrong', false)
         }
       );
     } else {
-      window.alert('Please Enter The Input Fields');
+      this.showToaster('Please Enter The Input Fields', false)
     }
   }
   forgot() { }
